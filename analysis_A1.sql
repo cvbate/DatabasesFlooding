@@ -12,7 +12,7 @@ CREATE EXTENSION IF NOT EXISTS postgis;
 -------- setup
 -- create table for topography
 CREATE TABLE topography(
-    elevation varchar(255)
+elevation varchar(255)
 );
 -- create table for flood events/flood risks
 CREATE TABLE  flood_risk(
