@@ -16,7 +16,7 @@ elevation varchar(255),
 GeoLocation GEOMETRY(Point, 4326)
 );
 
--- create table for flood events/flood risks
+-- create table for hurrican katrina flood event
 CREATE TABLE  katrina(
 katrina_ID int PRIMARY KEY,
 Severity varchar(255),
