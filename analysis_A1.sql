@@ -17,9 +17,10 @@ GeoLocation GEOMETRY(Point, 4326)
 );
 
 -- create table for flood events/flood risks
-CREATE TABLE  flood_risk(
-flood_area_ID int PRIMARY KEY,
-Risk varchar(255),
+CREATE TABLE  katrina(
+katrina_ID int PRIMARY KEY,
+Severity varchar(255),
+Duration varchar (255),
 GeoLocation GEOMETRY(Polygon, 4326) -- this should be polygon? check syntax
 );
 
