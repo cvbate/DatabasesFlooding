@@ -10,10 +10,10 @@ The risk of flooding in coastal cities poses significant challenges to both infr
 By employing a comprehensive approach that integrates topographical data, historical flood events, and current flood defenses, this assignment arises from the imperative to understand the complex interplay of natural and human factors that exacerbated the impacts of the Hurricane Katrina. Hurricane Katrina exposed the vulnerabilities of coastal cities to extreme weather events and highlighted the inadequacy of existing flood defenses in mitigating the catastrophic effects of storm surges and inundation. With the use of spatial analysis and GIS techniques, this assessment seeks to unravel the underlying causes of flood risk associated with Hurricane Katrina, provide insights into the vulnerability of the city to flooding, inform strategies for mitigation and adaptation, and identify opportunities for strengthening resilience to similar events in the future.
 
 ## Importance
-Provides valuable insights into the vulnerabilities and shortcomings of current flood management practices, facilitating learning from past mistakes and improving future disaster response strategies.
-Helps in the identification of high-risk areas and the development of targeted mitigation measures to reduce the vulnerability of coastal communities to future hurricanes and storm surges.
-This also enhances emergency preparedness and response capabilities, allowing for more efficient allocation of resources during crises.
-The findings of this assessment can inform policy decisions related to land use planning, infrastructure investment, and emergency preparedness, which is essential in enhancing resilience and adapting to the impacts of climate change.
+- Provides valuable insights into the vulnerabilities and shortcomings of current flood management practices, facilitating learning from past mistakes and improving future disaster response strategies.
+- Helps in the identification of high-risk areas and the development of targeted mitigation measures to reduce the vulnerability of coastal communities to future hurricanes and storm surges.
+- This also enhances emergency preparedness and response capabilities, allowing for more efficient allocation of resources during crises.
+- The findings of this assessment can inform policy decisions related to land use planning, infrastructure investment, and emergency preparedness, which is essential in enhancing resilience and adapting to the impacts of climate change.
 
 
 ### What is included in this reposotory
