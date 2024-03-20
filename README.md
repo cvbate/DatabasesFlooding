@@ -1,7 +1,7 @@
 
 # Flood Risk and Defenses in Coastal Louisiana
 
-## Ruthanne Ward, Grace Nwachukwu, and Clio Bate | Spatial Databases IDCE 376
+## Ruthanne Ward, Grace Nwachukwu, and Clio Bate | Spatial Databases IDCE376
 
 ## Introduction
 
@@ -38,8 +38,8 @@ The data included in this repository are:
 1. Boreholes Louisiana (SHP)
 1. Floodwalls Louisiana (SHP)
 
-- The Katrina flood datais from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/)
-- The data levee data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/)
+- The Katrina flood datais from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/).
+- The levee data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/).
 
 ## Methodology
 
