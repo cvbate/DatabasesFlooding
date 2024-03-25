@@ -53,6 +53,10 @@ The data included in this repository are:
 
 ### Assignment 2
 
+importing our data into our pgadmin database
+
+we will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
+
 ### Assignment 3
 
 #### Credits
