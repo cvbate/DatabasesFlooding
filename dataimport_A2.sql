@@ -43,5 +43,17 @@ raster2pgsql -s 4326 -I -C -M katrina_duration_clip.tif public.duration_rast > d
 
 -- clio has had had success with above code!
 
+-- This extension postgis_raster is needed for the below code.
 
+-- go back to command propt WITHOUT wsl
+
+
+C:\Users\cvale\DatabaseFlooding\DatabasesFlooding\Data2> "c:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -d Flooding -f LeveeStations.sql
+"c:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -d Flooding -f Boreholes.sql
+"c:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -d Flooding -f Floodwalls.sql
+
+--rasters import but the column is emptyy.......
+"c:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -d Flooding -f katflood.sql
+"c:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -d Flooding -f permwater.sql
+"c:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -d Flooding -f duration.sql
 
