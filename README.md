@@ -38,6 +38,8 @@ The data included in this repository are:
 1. Boreholes Louisiana (SHP)
 1. Floodwalls Louisiana (SHP)
 
+Everything is projected to WGS 84.
+
 - The Katrina flood datais from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/).
 - The levee data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/).
 
