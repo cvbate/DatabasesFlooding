@@ -1,8 +1,6 @@
 -- Connect to database
 \c Flooding
 
--- depending on your system it may also be
-
 CREATE EXTENSION IF NOT EXISTS postgis_raster;
 ------------------------------------------------------------------------
 
