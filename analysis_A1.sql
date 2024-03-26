@@ -1,7 +1,7 @@
 --create database
 CREATE DATABASE "Flooding";
 
--- Connect to RealEstateDB
+-- Connect to flooding database
 \c Flooding
 
 -- Enable PostGIS
