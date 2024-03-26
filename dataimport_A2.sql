@@ -1,9 +1,10 @@
 -- Connect to database
 \c Flooding
--- depending on your system it may also be
-\c "Flooding"
 
---ignoreabove------------------------------------------------------------------------
+-- depending on your system it may also be
+
+CREATE EXTENSION IF NOT EXISTS postgis_raster;
+------------------------------------------------------------------------
 
 -- Acer Swift X Windows X PostGis 16
 
