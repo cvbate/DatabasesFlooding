@@ -3,9 +3,11 @@
 -- depending on your system it may also be
 \c "Flooding"
 
+--ignoreabove------------------------------------------------------------------------
+
 -- Acer Swift X Windows X PostGis 16
 
---in command prompt set your path to the folder that contian the data
+--in command prompt set your path to the folder that contains the data
 cd C:\Users\cvale\DatabaseFlooding\DatabasesFlooding\Data2
 
 -- save the shp as a sql document called parks.sql in the same folder
@@ -33,6 +35,7 @@ shp2pgsql -s 4326 -I FloodwallsWGS84.shp public.Floodwalls_vector > Floodwalls.s
 -- Katrina_Perm_water_clip.tif
 -- duration_clip.tif
 
+-- explain what -I , -C, -M does
 raster2pgsql -s 4326 -I -C -M Katrina_floods_without_perm_water_clip.tif public.katflood_rast > katflood.sql 
 
 raster2pgsql -s 4326 -I -C -M Katrina_Perm_water_clip.tif public.permwater_rast > permwater.sql 
@@ -43,5 +46,3 @@ raster2pgsql -s 4326 -I -C -M katrina_duration_clip.tif public.duration_rast > d
 
 
 
--- explain what -I , -C, -M does
-raster2pgsql -s 4326 -I -C -M LST_Boston.tif public.las_raster > kat_flood.sql
