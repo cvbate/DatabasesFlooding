@@ -33,10 +33,13 @@ The data included in this repository are:
 1. Katrina Flood Extent (TIF)
 1. Permanent Water in Louisiana (TIF)
 1. Katrina Flood Extent not including Permanent Water (TIF)
+![Katrina_Flooding](https://github.com/cvbate/DatabasesFlooding/assets/98286245/2c165e1f-4a4b-4d82-aae2-d6afae18b606)
 1. Katrina Duration of Flooding (TIF)
+![Katrina_duration](https://github.com/cvbate/DatabasesFlooding/assets/98286245/0cce2eac-4aa7-4e82-9397-51fe2e345ecd)
 1. Levee Stations Louisiana (SHP)
 1. Boreholes Louisiana (SHP)
 1. Floodwalls Louisiana (SHP)
+![Louisiana_FloodDefenses](https://github.com/cvbate/DatabasesFlooding/assets/98286245/7e022b3f-c10f-42fe-a340-a5b2a755f079)
 
 Everything is projected to WGS 84.
 
@@ -55,7 +58,31 @@ Everything is projected to WGS 84.
 
 ### Assignment 2
 
-importing our data into our pgadmin database
+1.  First the shapefiles were converted to sql files by using the shp2pgsql function. An example of this code is:
+
+```
+shp2pgsql -s 4326 -I "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\Louisiana_boreholes.shp" public.boreholes >
+ "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
+```
+
+2. Next the rasters were converted into .sql files using the raster2pgsql function. An example of this code is:
+
+```
+raster2pgsql -s 4326 -I -C -M "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\flooding.tif" public.Katrina_flooding >
+ "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\flooding.sql"
+```
+
+3. Next the newly created .sql files were added to the database by reading the file into the already created database "Flooding" An example of this code is:
+
+```
+pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
+```
+
+We ran into an issue with our rasters. The column that was supposed to contain the raster valeu was blank. We overcame this challenge by converting our rasters to polygon 
+shapefiles and importing them to sql as shapefiles. This is a temporary fix until we figure out how to fix our raster error. 
+
+4. Finally the tables were cleaned by dropping unncessary columns. These are columns that either include null values or are not usefull to the analysis. 
+
 
 we will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
 
