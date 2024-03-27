@@ -31,7 +31,7 @@ DROP COLUMN capture_st, -- null
 DROP COLUMN status; -- null
 
 
--- Floodwalls not yet run 
+-- Floodwalls, run no issues
 ALTER TABLE floodwalls_vector
 DROP COLUMN floodwall_, -- irrelevent
 DROP COLUMN gage_code, -- null
@@ -42,7 +42,39 @@ DROP COLUMN vert_accur, -- irrelevent
 DROP COLUMN gage_owner, -- irrelevent
 DROP COLUMN coordinate, -- irrelevent
 DROP COLUMN segment_id, -- irrelevent
-DROP COLUMN status; -- irrelevent theyre all current
+DROP COLUMN status, -- irrelevent theyre all current
 DROP COLUMN cutoff_typ, -- irrelevent
 DROP COLUMN segment_na, -- irrelevent
 DROP COLUMN system_nam, -- irrelevent
+DROP COLUMN system_typ, -- irrelevent theyre all levvee system
+DROP COLUMN states, -- irrelevent all in New Orleans LO
+DROP COLUMN counties, -- irrelevent to our analysis
+DROP COLUMN community_, -- irrelevent to our analysis
+DROP COLUMN divisions, -- irrelevent
+DROP COLUMN districts, -- irrelevent
+DROP COLUMN fema_regio, -- irrelevent
+DROP COLUMN congressio, -- irrelevent
+DROP COLUMN aiannh_nam, -- irrelevent
+DROP COLUMN segment_is, -- irrelevent
+DROP COLUMN system_is_, -- irrelevent
+DROP COLUMN authorizat, -- irrelevent
+DROP COLUMN non_projec, -- null
+DROP COLUMN non_proj_1, -- irrelevent
+DROP COLUMN rip_status, -- irrelevent
+DROP COLUMN sponsors, -- irrelevent
+DROP COLUMN organizati, -- irrelevent
+DROP COLUMN organiza_1, -- irrelevent
+DROP COLUMN flood_so_1, -- irrelevent
+DROP COLUMN design_flo, -- irrelevent
+DROP COLUMN freeboard, -- irrelevent
+DROP COLUMN flood_redu, -- irrelevent
+DROP COLUMN stewards, -- irrelevent
+DROP COLUMN responsibl, -- irrelevent
+DROP COLUMN interested, -- irrelevent
+DROP COLUMN p2_numbers, -- irrelevent
+DROP COLUMN primary_fl, -- irrelevent
+DROP COLUMN organiza_1, -- irrelevent
+DROP COLUMN length,
+DROP COLUMN up_river_m,
+DROP COLUMN down_river,
+DROP COLUMN shape__len; -- irrelevent
