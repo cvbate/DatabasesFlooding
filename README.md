@@ -122,6 +122,9 @@ Based on the information on the borehole vector table, it does satisfy the requi
 - This table appears to satisfy 3NF, the table is in 2NF, and there are no transitive dependencies. All non-key attributes appear to directly depend on the primary key (gid).
 
 #### Fourth Normal Form (4NF)
+- Since the table already in 3NF, and there are no multi-valued dependencies present, the table meets the requirements of 4NF.
+
+
 
 
 
