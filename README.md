@@ -84,7 +84,50 @@ shapefiles and importing them to sql as shapefiles. This is a temporary fix unti
 4. Finally the tables were cleaned by dropping unncessary columns. These are columns that either include null values or are not usefull to the analysis. 
 
 
-we will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
+5. we will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
+
+## Normalization of tables
+Database normalization is a methodical strategy for structuring data within a database with the aim of minimizing duplication and enhancing the reliability of data.
+
+### Reasons for Normalization
+- To prevent redundancy in data.
+- To simplify database structure.
+- To maintain consistent relationships between tables.
+- To facilitate easier database maintenance and updates.
+
+### Checking for Normalization
+
+### Borehole_vector Table
+#### First Normal Form (1NF)
+- This table satisfies INF since there are no multiple values stored in a single cell of the table, thereby reducing complexity.
+
+#### Second Normal Form (2NF)
+- Since the table is already in 1NF, and there are no partial dependencies (that is, all non-prime attributes are depending on the entire primary key), the given borehole vector table satisfies Second Normal Form (2NF).
+
+#### Third Normal Form (3NF)
+- The borehole vector meets the requirements of 3NF. It is already in 1NF and 2NF, and there are no transitive dependencies among non-prime attributes, each non-key attribute is directly dependent on the primary key (gid). Therefore, the table meets the requirements of the 3NF.
+
+####  Fouth Normal Form (4NF)
+- In the given table, there seems not to be any multi-valued dependencies. Each attribute seems to depend only on the primary key (gid) and not on combinations of other non-key attributes.
+Based on the information on the borehole vector table, it does satisfy the requirements for Fourth Normal Form (4NF). It's already in 3NF, and there are no multi-valued dependencies present, . each attribute seems to depend only on the primary key (gid) and not on combinations of other non-key attributes.
+
+### Leveestation Table
+#### First Normal Form (1NF)
+- This table appears to satisfy 1NF, since all are atomic, that is, each cell in the table contains a single value.
+
+#### Second Normal Form (2NF)
+- It also meets the requirements for 2NF because it is in 1NF, and none of the non-key attributes seem to depend on a subset of the primary key.
+
+#### Third Normal Form (3NF)
+- This table appears to satisfy 3NF, the table is in 2NF, and there are no transitive dependencies. All non-key attributes appear to directly depend on the primary key (gid).
+
+#### Fourth Normal Form (4NF)
+
+
+
+
+
+
 
 ### Assignment 3
 
