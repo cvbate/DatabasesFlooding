@@ -86,7 +86,7 @@ shapefiles and importing them to sql as shapefiles. This is a temporary fix unti
 
 5. we will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
 
-## Normalization of tables
+## Normalization of Tables
 Database normalization is a methodical strategy for structuring data within a database with the aim of minimizing duplication and enhancing the reliability of data.
 
 ### Reasons for Normalization
