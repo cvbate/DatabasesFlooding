@@ -61,9 +61,7 @@ Everything is projected to WGS 84.
 1. First the shapefiles were converted to sql files by using the shp2pgsql function. An example of this code is:
 
 `
-shp2pgsql -s 4326 -I "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\Louisiana_boreholes.shp" public.boreholes 
-`
-`
+shp2pgsql -s 4326 -I "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\Louisiana_boreholes.shp" public.boreholes >
  "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
 `
 
