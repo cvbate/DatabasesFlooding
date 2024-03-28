@@ -78,7 +78,7 @@ raster2pgsql -s 4326 -I -C -M "C:\Users\rutha\OneDrive - Clark University\Docume
 pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
 ```
 
-We ran into an issue with our rasters. The column that was supposed to contain the raster valeu was blank. We overcame this challenge by converting our rasters to polygon 
+We ran into an issue with our rasters. The column that was supposed to contain the raster value was blank. We overcame this challenge by converting our rasters to polygon 
 shapefiles and importing them to sql as shapefiles. This is a temporary fix until we figure out how to fix our raster error. 
 
 4. Finally the tables were cleaned by dropping unncessary columns. These are columns that either include null values or are not usefull to the analysis. 
