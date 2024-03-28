@@ -18,17 +18,20 @@ By employing a comprehensive approach that integrates topographical data, histor
 - This also enhances emergency preparedness and response capabilities, allowing for more efficient allocation of resources during crises.
 - The findings of this assessment can inform policy decisions related to land use planning, infrastructure investment, and emergency preparedness, which is essential in enhancing resilience and adapting to the impacts of climate change.
 
-### What is included in this repository
+### What included in this repository
+
+#### Scripts
 
 1. README.md (this document)
 1. INSTRUCTIONS.md: a document that lists the instructions for each assignment
-1. analysis_A1: the sql code for assingment 1 this includes the creation of the database and initial tables
-1. analysis_A2: the sql code for assignment 2
-1. analysis_A3: the sql code for assignment 3
+1. setup_A1: the sql code for assingment 1 this includes the creation of the database and initial tables that we potentially will use for normalizing our data
+1. dataimport_A2.sql: the sql code for making sql files from our vector and raster files and importing them into PgAdmin for assignment 2
+1. cleaned_tables_A2.sql: sql code that creates three empty tables and populates them with only the columns relevent to our analysis
+1. analysis_A3: the sql code for our spatial queries for assignment 3
 
-### Data
+#### Data
 
-The data included in this repository are:  
+The data in this repository are:  
 
 1. Katrina Flood Extent (TIF)
 1. Permanent Water in Louisiana (TIF)
@@ -43,15 +46,12 @@ The data included in this repository are:
 
 Everything is projected to WGS 84.
 
-- The Katrina flood datais from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/).
-- The levee data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/).
-
 ## Methodology
 
 ### Assignment 1
 
 1. Create Flooding databases and postgis extenstion
-1. Create three tables,
+1. Create three tables that we may need for datanormalizat later on in the analysis,
     - the first table, topography which will be point data converted from a raster witht he columns: elevation, and geolocation
     - the second table to hold hurricane katrina flooding data with the columns:katrina_ID, severity, duration, and a geolocation
     - the third table to hold the levee data with three colomns: defense_ID, defense_type, and a geolocation
@@ -60,7 +60,6 @@ Everything is projected to WGS 84.
 
 1. First the shapefiles were converted to sql files by using the shp2pgsql function. An example of this code is:
 
-`
 shp2pgsql -s 4326 -I "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\Louisiana_boreholes.shp" public.boreholes >
  "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
 `
@@ -135,14 +134,13 @@ Based on the information on the borehole vector table, it does satisfy the requi
 
 - Since the table already in 3NF, and there are no multi-valued dependencies present, the table meets the requirements of 4NF.
 
-
-
-
-
-
-
-
-
 ### Assignment 3
 
-#### Credits
+#### Data Sources
+
+- The Katrina flood TIF data is from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/).
+- The levee SHP data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/).
+
+#### Useful Resouces
+
+[Raster Data Management, Queries, and Applications for PostGIS EXT](https://postgis.net/docs/using_raster_dataman.html)
