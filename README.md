@@ -72,18 +72,15 @@ raster2pgsql -s 4326 -I -C -M "C:\Users\rutha\OneDrive - Clark University\Docume
  "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\flooding.sql"
 `
 
-1. Next the newly created .sql files were added to the database by reading the file into the already created database "Flooding" An example of this code is:
+1. Next the newly created .sql files were added to our PgAdmin database by reading the file into the already created database "Flooding" An example of this code is:
 
 `
 pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
 `
 
-We ran into an issue with our rasters. The column that was supposed to contain the raster value was blank. We overcame this challenge by converting our rasters to polygon 
-shapefiles and importing them to sql as shapefiles. This is a temporary fix until we figure out how to fix our raster error. 
+We ran into an issue with our rasters. The column that was supposed to contain the raster value was blank. We overcame this challenge by converting our rasters to polygon shapefiles and importing them to sql as shapefiles. This is a temporary fix until we figure out how to fix our raster error.
 
-1. Finally the tables were cleaned by dropping unncessary columns. These are columns that either include null values or are not usefull to the analysis. 
-
-1. We will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
+1. Finally we created empty tables for our vector files and populated them with only the columns from the original data that were relevent to our analysis.
 
 ## Normalization of Tables
 
@@ -145,3 +142,4 @@ Based on the information on the borehole vector table, it does satisfy the requi
 #### Useful Resouces
 
 [Raster Data Management, Queries, and Applications for PostGIS EXT](https://postgis.net/docs/using_raster_dataman.html)
+[Class website](https://studyingplace.space/spatial-database/about.html)
