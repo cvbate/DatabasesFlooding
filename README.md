@@ -132,6 +132,9 @@ Based on the information on the borehole vector table, it does satisfy the requi
 
 - Since the table already in 3NF, and there are no multi-valued dependencies present, the table meets the requirements of 4NF.
 
+### Floodwall_vector table
+- This table also satisfies the requirements for 1NF, 2NF, 3NF and 4NF based on the various reasons given above on the previous tables.
+
 ### Assignment 3
 
 #### Data Sources
