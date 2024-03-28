@@ -58,38 +58,39 @@ Everything is projected to WGS 84.
 
 ### Assignment 2
 
-1.  First the shapefiles were converted to sql files by using the shp2pgsql function. An example of this code is:
+1. First the shapefiles were converted to sql files by using the shp2pgsql function. An example of this code is:
 
-```
+`
 shp2pgsql -s 4326 -I "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\Louisiana_boreholes.shp" public.boreholes >
  "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
-```
+`
 
-2. Next the rasters were converted into .sql files using the raster2pgsql function. An example of this code is:
+1. Next the rasters were converted into .sql files using the raster2pgsql function. An example of this code is:
 
-```
+`
 raster2pgsql -s 4326 -I -C -M "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\flooding.tif" public.Katrina_flooding >
  "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\flooding.sql"
-```
+`
 
-3. Next the newly created .sql files were added to the database by reading the file into the already created database "Flooding" An example of this code is:
+1. Next the newly created .sql files were added to the database by reading the file into the already created database "Flooding" An example of this code is:
 
-```
+`
 pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
-```
+`
 
 We ran into an issue with our rasters. The column that was supposed to contain the raster value was blank. We overcame this challenge by converting our rasters to polygon 
 shapefiles and importing them to sql as shapefiles. This is a temporary fix until we figure out how to fix our raster error. 
 
-4. Finally the tables were cleaned by dropping unncessary columns. These are columns that either include null values or are not usefull to the analysis. 
+1. Finally the tables were cleaned by dropping unncessary columns. These are columns that either include null values or are not usefull to the analysis. 
 
-
-5. we will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
+1. We will do normalization.... what is it normalization why did we need to normalize our data (or not) and how we did it!
 
 ## Normalization of Tables
+
 Database normalization is a methodical strategy for structuring data within a database with the aim of minimizing duplication and enhancing the reliability of data.
 
 ### Reasons for Normalization
+
 - To prevent redundancy in data.
 - To simplify database structure.
 - To maintain consistent relationships between tables.
@@ -98,30 +99,40 @@ Database normalization is a methodical strategy for structuring data within a da
 ### Checking for Normalization
 
 ### Borehole_vector Table
+
 #### First Normal Form (1NF)
+
 - This table satisfies INF since there are no multiple values stored in a single cell of the table, thereby reducing complexity.
 
 #### Second Normal Form (2NF)
+
 - Since the table is already in 1NF, and there are no partial dependencies (that is, all non-prime attributes are depending on the entire primary key), the given borehole vector table satisfies Second Normal Form (2NF).
 
 #### Third Normal Form (3NF)
+
 - The borehole vector meets the requirements of 3NF. It is already in 1NF and 2NF, and there are no transitive dependencies among non-prime attributes, each non-key attribute is directly dependent on the primary key (gid). Therefore, the table meets the requirements of the 3NF.
 
-####  Fouth Normal Form (4NF)
+#### Fouth Normal Form (4NF)
+
 - In the given table, there seems not to be any multi-valued dependencies. Each attribute seems to depend only on the primary key (gid) and not on combinations of other non-key attributes.
 Based on the information on the borehole vector table, it does satisfy the requirements for Fourth Normal Form (4NF). It's already in 3NF, and there are no multi-valued dependencies present, . each attribute seems to depend only on the primary key (gid) and not on combinations of other non-key attributes.
 
 ### Leveestation Table
+
 #### First Normal Form (1NF)
+
 - This table appears to satisfy 1NF, since all are atomic, that is, each cell in the table contains a single value.
 
 #### Second Normal Form (2NF)
+
 - It also meets the requirements for 2NF because it is in 1NF, and none of the non-key attributes seem to depend on a subset of the primary key.
 
 #### Third Normal Form (3NF)
+
 - This table appears to satisfy 3NF, the table is in 2NF, and there are no transitive dependencies. All non-key attributes appear to directly depend on the primary key (gid).
 
 #### Fourth Normal Form (4NF)
+
 - Since the table already in 3NF, and there are no multi-valued dependencies present, the table meets the requirements of 4NF.
 
 
