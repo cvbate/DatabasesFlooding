@@ -46,6 +46,10 @@ The data in this repository are:
 
 Everything is projected to WGS 84.
 
+#### Preprocessing in ArcPro
+
+Before we could use the data, we had to preform some basic preprocessing of our data. We clipped all of our vecotor and raster data to the state boundary of Louisiana to reduce computational expenses during our analysis. We also double checked the projection and re-projected our data to WGS 1984 to ensure no errors related to projection were to occur.
+
 ## Methodology
 
 ### Assignment 1
@@ -133,9 +137,22 @@ Based on the information on the borehole vector table, it does satisfy the requi
 - Since the table already in 3NF, and there are no multi-valued dependencies present, the table meets the requirements of 4NF.
 
 ### Floodwall_vector table
+
 - This table also satisfies the requirements for 1NF, 2NF, 3NF and 4NF based on the various reasons given above on the previous tables.
 
 ### Assignment 3
+
+#### Challenges
+
+We enountered a few challenges over the course of our project.
+
+- Difficulties finding elevation data... we found a few sources, including X however the tiles were very small and we would have had to individually download and then mosaic 20 + tiles for our study area.
+
+- we changed our project from boston to lousisna because we had difficulties finding historic flooding information in GIS data. we did eventually find flooding data for katrina from a website, Cloudtostreedai. Which is why we switched to Louisiana instead of Boston.
+
+- working with raster data
+
+when importing our data into PgAdmin with raster2sql *check code* we
 
 #### Data Sources
 
