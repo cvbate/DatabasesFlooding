@@ -154,7 +154,7 @@ We enountered a few challenges over the course of our project.
     We ran into an issue with our rasters after using raster2pgsql to import our rasters into the PGAdmin Database. The column that was supposed to contain the raster value was blank. We discovered, that uppon running the code in SQL Shell:
 
     `
-    -- this will return columns and values
+    -- this will return columns and values  
     SELECT (ST_PixelAsPoints(rast)) FROM katflood_rast;
     `  
 
