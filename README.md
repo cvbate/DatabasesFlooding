@@ -36,13 +36,12 @@ The data in this repository are:
 1. Katrina Flood Extent (TIF)
 1. Permanent Water in Louisiana (TIF)
 1. Katrina Flood Extent not including Permanent Water (TIF)
-![Katrina_Flooding](https://github.com/cvbate/DatabasesFlooding/assets/98286245/2c165e1f-4a4b-4d82-aae2-d6afae18b606)
 1. Katrina Duration of Flooding (TIF)
-![Katrina_duration](https://github.com/cvbate/DatabasesFlooding/assets/98286245/0cce2eac-4aa7-4e82-9397-51fe2e345ecd)
 1. Levee Stations Louisiana (SHP)
 1. Boreholes Louisiana (SHP)
 1. Floodwalls Louisiana (SHP)
-![Louisiana_FloodDefenses](https://github.com/cvbate/DatabasesFlooding/assets/98286245/7e022b3f-c10f-42fe-a340-a5b2a755f079)
+![Louisiana Data](https://github.com/cvbate/DatabasesFlooding/assets/98286245/1cc863b6-262f-4d83-b324-4be0cb3bd161)
+
 
 Everything is projected to WGS 84.
 
@@ -140,6 +139,39 @@ Based on the information on the borehole vector table, it does satisfy the requi
 
 ### Assignment 3
 
+Analyze the data to identify:
+
+In order to identify high-risk areas we chose to select areas where flood defenses and flooding polygons intersect. Areas where there was both previous flooding and no contact with flood defenses were deemed high risk for future flooding. This spatial querey was executed with the following code and visualized using QGIS. 
+
+```
+-- Create table of flooded areas that are protected by boreholes
+CREATE TABLE protected_flooding_polygons AS
+SELECT fv.*
+FROM flooding_vector fv
+JOIN boreholes_clean_vector bc ON ST_Intersects(fv.geom, bc.geom);
+
+-- Create table of flooded areas that are protected by floodwalls
+CREATE TABLE protected_flooding_polygons AS
+SELECT fv.*
+FROM flooding_vector fv
+JOIN floodwalls_clean_vector fw ON ST_Intersects(fv.geom, fw.geom);
+```
+
+![Protected Flood Area](https://github.com/cvbate/DatabasesFlooding/assets/98286245/da03fae0-e7af-41c9-8d23-ff8d0e57b3a3)
+![Protected Flooded Area with Defenses](https://github.com/cvbate/DatabasesFlooding/assets/98286245/6e399727-260b-482e-8aa5-bbec90d975ba)
+
+We were unable to include elevation data due to the challenges listed in the next section. But, if we are able to dowload elevation data in the future we would use this spatial querey to determine areas with elevation below sea level: 
+
+```
+-- Select pixels from elevation raster that are below sea level. 
+SELECT *
+FROM elevation_neworleans
+WHERE ST_Value(rast) < 0;
+
+```
+We determined that the effectiveness of the current flood defenses are far greater than those existing during Hurrican Katrina. Currently, the boreholes and floodwalls are most highly concentrated around New Orleans and down the eastern coastline of Louisiana. We determined that these were likely put into place post-Katrina due to the catostrophic loss of life during that event. We also determined that the areas in need of additional flood defenses are those with the lowest elevations, that have been previously flooded and don't intersect with currrent flood defenses. 
+
+
 #### Challenges
 
 We enountered a few challenges over the course of our project.
@@ -148,7 +180,7 @@ We enountered a few challenges over the course of our project.
 
     Historic Flooding data. We changed our study area from boston to Lousisna because we had difficulties finding historic flooding information in GIS data. We did eventually find flooding data for Katrina from a website, Cloudtostreedai. Intitially we thought it wasn't going to be sufficient because after downloading the raster data they appeared empty, however upon changing the symbology, we disovered that was not the case. Which is why we switched to Louisiana instead of Boston.
 
-    Finding elevation data. We found a few sources, however due to practicality issues, we weren't able to use this data. FOr example, NOAA coastal Lidar dataset was not extensive enough for our study area. Aditionally, the Louisiana State Lidar Project did have elevation data, however the tiles available for download were very small and we would have had to individually download and then mosaic 20 + tiles for our study area. We weren't sure if this was feasable for us. After further digging we did eventually find elevation data from the US Geoelogical Survey which were were able to succesfully download although the first couple of times we tried there was an error saying the servor was unavailable.
+    Finding elevation data. We found a few sources, however due to practicality issues, we weren't able to use this data. FOr example, NOAA coastal Lidar dataset was not extensive enough for our study area. Aditionally, the Louisiana State Lidar Project did have elevation data, however the tiles available for download were very small and we would have had to individually download and then mosaic 20 + tiles for our study area. We weren't sure if this was feasable for us. After further digging we did eventually find elevation data from the US Geoelogical Survey which were were able to succesfully download for the city of New Orleans, although PgAdmin crashed any time the table was selected and the .sql file was too large to push to github.
 
 1. Working with Raster Data
     We ran into an issue with our rasters after using raster2pgsql to import our rasters into the PGAdmin Database. The column that was supposed to contain the raster value was blank. We discovered, that uppon running the code in SQL Shell:
