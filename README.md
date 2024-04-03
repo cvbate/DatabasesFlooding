@@ -144,6 +144,20 @@ Based on the information on the borehole vector table, it does satisfy the requi
 ### Bolesholes Table2
 ![boleholes table2](https://github.com/cvbate/DatabasesFlooding/blob/main/boleholes_table2.PNG)
 
+### Floodwalls Table
+![floodwalls table](https://github.com/cvbate/DatabasesFlooding/blob/main/floodwalls.PNG)
+
+### Floodwalls Table2
+![floodwalls table2](https://github.com/cvbate/DatabasesFlooding/blob/main/floodwalls_table2.PNG)
+
+### leveestations Tables
+![leevestation table](https://github.com/cvbate/DatabasesFlooding/blob/main/leveestation_table.PNG)
+
+### Flooding Table
+![flooding table](https://github.com/cvbate/DatabasesFlooding/blob/main/flooding_table.PNG)
+
+### Permanent Water Table
+![permanent_water_table](https://github.com/cvbate/DatabasesFlooding/blob/main/permanent_water_table.PNG)
 
 ### Assignment 3
 
