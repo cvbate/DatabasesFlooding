@@ -153,10 +153,11 @@ We enountered a few challenges over the course of our project.
 1. Working with Raster Data
     We ran into an issue with our rasters after using raster2pgsql to import our rasters into the PGAdmin Database. The column that was supposed to contain the raster value was blank. We discovered, that uppon running the code in SQL Shell:
 
-`
--- this will return columns and values
-SELECT (ST_PixelAsPoints(rast)) FROM katflood_rast;
-`  
+    `
+    -- this will return columns and values
+    SELECT (ST_PixelAsPoints(rast)) FROM katflood_rast;
+    `  
+
     It did return data so it was concluded that there was information in the raster, it was just too large for it to show u in PgAdmin.
     As back up we converting our rasters to polygon shapefiles in ArcGIS and imported them to SQL as vectors
     We did actually end up using the polygons instead of the rasters because when trying to perfom spatial queries in SQL with the rasters, it was too compuationally expensive and it was running for 20+ minutures with no results.
