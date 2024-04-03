@@ -137,8 +137,13 @@ Based on the information on the borehole vector table, it does satisfy the requi
 
 - This table also satisfies the requirements for 1NF, 2NF, 3NF and 4NF based on the various reasons given above on the previous tables.
 
-### Uploading Images
+### Uploading tables
+### Boleholes Table
 ![boleholes table](https://github.com/cvbate/DatabasesFlooding/blob/main/boleholes_table.PNG)
+
+### Bolesholes Table2
+![boleholes table2](https://github.com/cvbate/DatabasesFlooding/blob/main/boleholes_table2.PNG)
+
 
 ### Assignment 3
 
