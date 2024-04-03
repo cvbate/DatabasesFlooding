@@ -82,8 +82,6 @@ raster2pgsql -s 4326 -I -C -M "C:\Users\rutha\OneDrive - Clark University\Docume
 pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
 `
 
-We ran into an issue with our rasters. The column that was supposed to contain the raster value was blank. We overcame this challenge by converting our rasters to polygon shapefiles and importing them to sql as shapefiles. This is a temporary fix until we figure out how to fix our raster error.
-
 1. Finally we created empty tables for our vector files and populated them with only the columns from the original data that were relevent to our analysis.
 
 ## Normalization of Tables
@@ -146,18 +144,28 @@ Based on the information on the borehole vector table, it does satisfy the requi
 
 We enountered a few challenges over the course of our project.
 
-- Difficulties finding elevation data... we found a few sources, including X however the tiles were very small and we would have had to individually download and then mosaic 20 + tiles for our study area.
+1. Data Aquisition:
 
-- we changed our project from boston to lousisna because we had difficulties finding historic flooding information in GIS data. we did eventually find flooding data for katrina from a website, Cloudtostreedai. Which is why we switched to Louisiana instead of Boston.
+    Historic Flooding data. We changed our study area from boston to Lousisna because we had difficulties finding historic flooding information in GIS data. We did eventually find flooding data for Katrina from a website, Cloudtostreedai. Intitially we thought it wasn't going to be sufficient because after downloading the raster data they appeared empty, however upon changing the symbology, we disovered that was not the case. Which is why we switched to Louisiana instead of Boston.
 
-- working with raster data
+    Finding elevation data. We found a few sources, however due to practicality issues, we weren't able to use this data. FOr example, NOAA coastal Lidar dataset was not extensive enough for our study area. Aditionally, the Louisiana State Lidar Project did have elevation data, however the tiles available for download were very small and we would have had to individually download and then mosaic 20 + tiles for our study area. We weren't sure if this was feasable for us. After further digging we did eventually find elevation data from the US Geoelogical Survey which were were able to succesfully download although the first couple of times we tried there was an error saying the servor was unavailable.
 
-when importing our data into PgAdmin with raster2sql *check code* we
+1. Working with Raster Data
+    We ran into an issue with our rasters after using raster2pgsql to import our rasters into the PGAdmin Database. The column that was supposed to contain the raster value was blank. We discovered, that uppon running the code in SQL Shell:
+
+`
+-- this will return columns and values
+SELECT (ST_PixelAsPoints(rast)) FROM katflood_rast;
+`
+    It did return data so it was concluded that there was information in the raster, it was just too large for it to show u in PgAdmin.
+    As back up we converting our rasters to polygon shapefiles in ArcGIS and imported them to SQL as vectors
+    We did actually end up using the polygons instead of the rasters because when trying to perfom spatial queries in SQL with the rasters, it was too compuationally expensive and it was running for 20+ minutures with no results.
 
 #### Data Sources
 
 - The Katrina flood TIF data is from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/).
 - The levee SHP data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/).
+- The LA elevation data is from the [US Geological Survey Website](https://www.usgs.gov/the-national-map-data-delivery/gis-data-download)
 
 #### Useful Resouces
 
