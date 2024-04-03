@@ -166,7 +166,7 @@ We enountered a few challenges over the course of our project.
 
 - The Katrina flood TIF data is from the [Global Defense Database by Cloudstreet.ai](https://global-flood-database.cloudtostreet.ai/).
 - The levee SHP data is from the [National Levee Database by the US Army Corps of Engineers](https://nld.usace.army.mil/).
-- The LA elevation data is from the [US Geological Survey Website](https://www.usgs.gov/the-national-map-data-delivery/gis-data-download)
+- The LA elevation data is from the [US Geological Survey Website](https://www.usgs.gov/the-national-map-data-delivery/gis-data-download).
 
 #### Useful Resouces
 
